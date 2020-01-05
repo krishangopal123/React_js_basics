@@ -10,7 +10,7 @@ export class parentRef extends Component {
 
 	
     myhandler=()=>{
-        this.inputRef.current.focus();
+        this.inputRef.current.myfunc()
         
     }
     

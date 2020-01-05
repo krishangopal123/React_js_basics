@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 import Comman from './commanforcounter'
-class Counter extends Component{
+class Component2 extends Component{
     constructor(){
         super()
         this.state={count:0}
         this.myfunc=this.myfunc.bind(this);
-        this.myfunc1=this.myfunc1.bind(this);
+        this.myfunc1=this.myfunc1.bind(this)
         this.inputRef = React.createRef();
     }
     myfunc=()=>{
@@ -21,11 +21,10 @@ class Counter extends Component{
         
             return (
                 <dev>
-                    
-                    <Comman ref={this.inputRef } /> 
-                    <button onClick={this.myfunc}>Add</button>
-                    <button onClick={this.myfunc1}>Sub</button>
-                    <button onClick={this.myfunc2}>SetToZero</button>
+                    <Comman ref={this.inputRef} />
+                    <button onMouseOver={this.myfunc}>Add</button>
+                    <button onMouseOver={this.myfunc1}>Sub</button>
+                    <button onMouseOver={this.myfunc2}>SetToZero</button>
                 </dev>
             )
        
@@ -33,4 +32,4 @@ class Counter extends Component{
 }
 
 
-export default Counter
+export default   Component2
