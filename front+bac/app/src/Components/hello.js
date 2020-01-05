@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+
 import axios from 'axios'
 class hello extends Component{
     constructor(props){
@@ -8,13 +10,12 @@ class hello extends Component{
         this.handler=this.handler.bind(this)
     }
     async myfunc(){
-        const response=await fetch("http://localhost:8081/get/3")
+        const response=await fetch("http://localhost:8081"+this.props.match.url)
         console.log(response)
         
-        axios.get("http://localhost:8081/get/3")
+        axios.get("http://localhost:8081"+this.props.match.url)
         .then(response2 => {
             //console.log(response2)
-            console.log(response2.config.url)
             //re
             this.setState({ src1: response2.config.url })
 
@@ -33,6 +34,7 @@ class hello extends Component{
     }
     handler=e=>{
         const data = new FormData();
+       
         var c=e.target.value.replace("C:\\fakepath\\", "");
         console.log(e.target.files[0])
         data.append('file', e.target.files[0]);
@@ -66,10 +68,12 @@ class hello extends Component{
         return(
             <React.Fragment>
             <button onClick={this.myfunc}>GETIMAGE</button>
+            
             <br />
             <br />
             <br />
             <input type="file" id="file-id" onChange={this.handler} name="image" value={this.state.image}></input>
+            
 
             <img src={this.state.src1} className="App-logo" ></img>
             </React.Fragment>
